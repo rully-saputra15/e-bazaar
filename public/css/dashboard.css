@@ -1,0 +1,15 @@
+.navbar{
+    position: relative;
+    color: black;
+    font-family: 'Muli', sans-serif;
+    transition: background-color 1s;
+  }
+.toast{
+    opacity:100%;
+}
+html, body {
+    background-color: #fff;
+    color: #000000;
+    font-family: 'Muli', sans-serif;
+    font-weight: 400;
+}
