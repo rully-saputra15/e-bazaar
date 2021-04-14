@@ -9,12 +9,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Muli:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.css')}}">
+    <script>
+        /*$(document).ready(function () {
+            $("#register").submit(function (e) {
+                e.preventDefault();
+                $("#btnSubmit").attr("disabled", true);
+                return true;
+            });
+        });*/
+    </script>
     </head>
     <body>
             <div class="container">
                 <div class="mt-5"></div>
                 <img style="width:128px;height:128px;" class="rounded mx-auto d-block"src="{{URL::asset('img/logo.jpeg')}}">
-                <form method="post" action="{{url('/registerPost')}}" enctype="multipart/form-data">
+                <form id="register" method="post" action="{{url('/registerPost')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <h1 style="text-align:center">Pendaftaran</h1>
@@ -56,8 +65,9 @@
                             <option value="PLUIT">PLUIT</option>
                             <option value="TEGAL ALUR">TEGAL ALUR</option>
                             <option value="JATINEGARA">JATINEGARA</option>
+                            <option value="OTHERS">OTHERS</option>
                         </select><br>
-                        <label for="">Pendidikan</label>
+                        <label for="">Pendidikan Terakhir</label>
                         <select class="form-control" name="pendidikan" required>
                             <option value="SD">SD</option>
                             <option value="SMP 1">SMP 1</option>
@@ -66,11 +76,12 @@
                             <option value="SMA 1">SMA 1</option>
                             <option value="SMA 2">SMA 2</option>
                             <option value="SMA 3">SMA 3</option>
+                            <option value="SMK">SMK</option>
                             <option value="Kuliah S1">Kuliah S1</option>
                             <option value="Kuliah S2">Kuliah S2</option>
                         </select><br>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button id="btnSubmit" onclick="this.disabled=true;this.form.submit();this.value='Submiting...';" type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </form>
